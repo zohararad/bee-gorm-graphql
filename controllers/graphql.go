@@ -49,7 +49,11 @@ func (c *GraphqlController) Query() {
       c.CustomAbort(http.StatusInternalServerError, err.Error())
       return
     }
-    c.Data["json"] = string(responseJSON)
+    var dat map[string]interface{}
+    if err := json.Unmarshal(responseJSON, &dat); err != nil {
+      panic(err)
+    }
+    c.Data["json"] = dat
     c.ServeJSON()
   }
 }

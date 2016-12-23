@@ -23,5 +23,5 @@ func addGraphQLHandler() {
 }
 
 func addFilters()  {
-	beego.InsertFilter("/*", beego.BeforeRouter, filterLoggedInUser)
+  beego.InsertFilter("/*", beego.BeforeRouter, filterLoggedInUser)
 }
