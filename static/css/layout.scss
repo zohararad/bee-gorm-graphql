@@ -1,0 +1,36 @@
+.app-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 20px 0 50px;
+  width: 180px;
+  min-width: 45px;
+  max-height: 100vh;
+  height: 100%;
+  // height: calc(100% - 50px);
+  z-index: 1023;
+  background: #fff;
+  box-shadow: 0 2px 3px hsla(0,0%,7%,.1),0 0 0 1px hsla(0,0%,7%,.1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.app-main {
+  margin-left: 180px;
+}
+
+.app-content {
+  padding: 20px;
+}
+
+.slide-fade-enter-active {
+  transition: all .1s ease;
+}
+.slide-fade-leave-active {
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(800px);
+  opacity: 0;
+}
