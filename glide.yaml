@@ -1,0 +1,15 @@
+package: github.com/zohararad/bee-gorm-graphql
+import:
+- package: github.com/astaxie/beego
+  version: ~1.7.2
+  subpackages:
+  - session
+- package: github.com/lib/pq
+- package: github.com/jinzhu/gorm
+  version: ~1.0.0
+- package: github.com/neelance/graphql-go
+testImport:
+- package: github.com/smartystreets/goconvey
+  version: ~1.6.2
+  subpackages:
+  - convey
