@@ -45,8 +45,8 @@ func userEncrypedPassword(password string) (encryptedPassword string) {
   return
 }
 
-func AllUsers() (users []User, err error) {
-  res := db.Conn.Debug().Find(&users)
+func AllUsers() (users []*User, err error) {
+  res := db.Conn.Debug().Order("first_name asc, last_name asc").Find(&users)
   err = res.Error
   if err != nil {
     beego.BeeLogger.Error("Error finding users: %v", res.Error.Error())
@@ -54,28 +54,26 @@ func AllUsers() (users []User, err error) {
   return
 }
 
-func FindUser(id string) (user User, err error) {
+func FindUser(id string) (*User, error) {
+  user := &User{ID: id}
   res := db.Conn.Debug().First(&user, "id=?", id)
-  err = res.Error
+  err := res.Error
   if err != nil {
     beego.BeeLogger.Error("Error finding user with id %s: %v", id, res.Error.Error())
   }
-  return
+  return user, err
 }
 
-func CreateUser(firstName string, lastName string, email string, password string) (user User, err error) {
-  user.FirstName = firstName
-  user.LastName = lastName
-  user.Email = email
-  user.EncryptedPassword = userEncrypedPassword(password)
-  res := db.Conn.Debug().Create(&user)
-  err = res.Error
-  return
+func CreateUser(firstName string, lastName string, email string, password string) (*User, error) {
+  user := &User{FirstName: firstName, LastName: lastName, Email: email, EncryptedPassword: userEncrypedPassword(password)}
+  res := db.Conn.Debug().Create(user)
+  err := res.Error
+  return user, err
 }
 
-func UpdateUser(id string, firstName *string, lastName *string, email *string, password *string) (User, error) {
-  user := User{}
-  res := db.Conn.Debug().First(&user, "id=?", id)
+func UpdateUser(id string, firstName *string, lastName *string, email *string, password *string) (*User, error) {
+  user := &User{}
+  res := db.Conn.Debug().First(user, "id=?", id)
   if res.Error != nil {
     beego.BeeLogger.Error("Error finding user with id %s: %v", id, res.Error.Error())
   }
@@ -91,14 +89,14 @@ func UpdateUser(id string, firstName *string, lastName *string, email *string, p
   if password != nil {
     user.EncryptedPassword = userEncrypedPassword(*password)
   }
-  res = db.Conn.Debug().Save(&user)
+  res = db.Conn.Debug().Save(user)
   err := res.Error
   return user, err
 }
 
-func DeleteUser(id string) (user User, err error) {
-  user.ID = id
+func DeleteUser(id string) (User, error) {
+  user := User{ID: id}
   res := db.Conn.Debug().Delete(&user)
-  err = res.Error
-  return
+  err := res.Error
+  return user, err
 }

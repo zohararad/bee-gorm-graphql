@@ -32,10 +32,10 @@ func (r *userResolver) Password() string {
 func ResolveUsers() (result []*userResolver) {
   users, err := models.AllUsers()
   if err != nil {
-    return nil
+    return
   }
   for _, user := range users {
-    result = append(result, &userResolver{entity: &user})
+    result = append(result, &userResolver{entity: user})
   }
   return
 }
@@ -45,7 +45,7 @@ func ResolveUser(id string) (result *userResolver) {
   if err != nil {
     return nil
   }
-  result = &userResolver{entity: &user}
+  result = &userResolver{entity: user}
   return
 }
 
@@ -54,7 +54,7 @@ func ResolveCreateUser(firstName string, lastName string, email string, password
   if err != nil {
     return nil
   }
-  result = &userResolver{entity: &user}
+  result = &userResolver{entity: user}
   return
 }
 
@@ -63,7 +63,7 @@ func ResolveUpdateUser(id string, firstName *string, lastName *string, email *st
   if err != nil {
     return nil
   }
-  result = &userResolver{entity: &user}
+  result = &userResolver{entity: user}
   return
 }
 
