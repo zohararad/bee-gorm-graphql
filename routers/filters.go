@@ -6,7 +6,8 @@ import (
 )
 
 var filterLoggedInUser = func(ctx *context.Context) {
-  if strings.HasPrefix(ctx.Input.URL(), "/session") {
+  url := ctx.Input.URL()
+  if strings.HasPrefix(url, "/session") || strings.HasPrefix(url, "/graphql"){
     return
   }
   _, ok := ctx.Input.Session("current_user").(map[string]string)
