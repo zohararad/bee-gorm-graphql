@@ -4,23 +4,23 @@ This app is a demo of using a Beego powered backend, with a Vue.js powered front
 
 ## Server-Side
 
-* **Beego** - Golang powered Web framework [Website](https://beego.me/)
-* **gorm** - Golang ORM - used instead of Beego's ORM due to better support of Postgres features (and fun) [Website](http://jinzhu.me/gorm)
-* **graphql-go** - Golang implementation of GraphQL. [Repo](https://github.com/neelance/graphql-go)
+* [Beego](https://beego.me/) - Golang powered Web framework.
+* [Gorm](http://jinzhu.me/gorm) - Golang ORM - used instead of Beego's ORM due to better support of Postgres features (and fun).
+* [graphql-go](https://github.com/neelance/graphql-go) - Golang implementation of GraphQL.
 
 ## Client-Side
 
-* **Vue.js** - used to build the UI components [Website](http://vuejs.org/)
-* **Vuex** - state management for Vue.js [Website](http://vuex.vuejs.org/)
-* **Vue Router** - router for Vue.js, using for routing support [Website](http://router.vuejs.org/)
-* **Bulma** - CSS framework used to for UI components [Website](http://bulma.io/)
+* [Vue.js](http://vuejs.org/) - used to build the UI components.
+* [Vuex](http://vuex.vuejs.org/) - state management for Vue.js.
+* [Vue Router](http://router.vuejs.org/) - router for Vue.js, using for routing support.
+* [Bulma](http://bulma.io/) - CSS framework used to for UI components.
 
 ## Setup
 
 * Install Node.js & Golang (project was developed on Golang v1.7)
-* Install glide for Golang dependency management [Website](https://glide.sh/)
-* Install yarn for client-side dependency management [Website](https://yarnpkg.com/)
-* Run the following
+* Install [glide](https://glide.sh/) for Golang dependency management.
+* Install [yarn](https://yarnpkg.com/) for client-side dependency management.
+* Run the following:
 
 ```bash
 $ git clone git@github.com:zohararad/bee-gorm-graphql.git
@@ -46,5 +46,7 @@ GraphiQL UI is embedded as is. This was blatantly "ripped off" from the **graphq
 ## Todo
 
 * Tests are missing completely - Will add them as time goes by
+
+## Contributions
 
 Pull Requests are more than welcome!
