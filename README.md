@@ -23,8 +23,8 @@ This app is a demo of using a Beego powered backend, with a Vue.js powered front
 * Run the following:
 
 ```bash
-$ git clone git@github.com:zohararad/bee-gorm-graphql.git
-$ cd bee-gorm-graphql
+$ go get github.com/zohararad/bee-gorm-graphql
+$ cd $GOPATH/src/github.com/zohararad/bee-gorm-graphql
 $ yarn install
 $ glide up
 $ go get github.com/beego/bee
