@@ -3,3 +3,4 @@ public/assets
 /vendor
 /bee-gorm-graphql
 /tmp
+*.exe
